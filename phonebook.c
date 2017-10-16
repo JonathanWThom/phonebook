@@ -14,14 +14,26 @@ int getSelectedOption() {
   int selectedItem;
   scanf("%d", &selectedItem);
 
-  if (selectedItem >= 1 && selectedItem <= 5) {
-    printf("You did it!\n\n");
-  } else {
+  if (selectedItem < 1 || selectedItem > 5) {
     selectedItem = 0;
     printf("Invalid Input\n\n");
   }
 
   return selectedItem;
+}
+
+void interpretSelection(selectedItem) {
+  if (selectedItem == 1) {
+    /// view list
+  } else if (selectedItem == 2) {
+    printf("Item 2");
+  } else if (selectedItem == 3) {
+    /// delete from list
+  } else if (selectedItem == 3) {
+    /// edit list
+  } else {
+    exit(0);
+  }
 }
 
 int main() {
@@ -30,7 +42,10 @@ int main() {
   int selectedItem = getSelectedOption();
 
   if (selectedItem != 0) {
-    printf("%d\n\n", selectedItem);
+    interpretSelection(selectedItem);
+  } else {
+    showMenu();
+    /// kills the program - shouldn't
   }
 
   return 0;
